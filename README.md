@@ -48,3 +48,14 @@ Django×React×Dockerのサンプルアプリ（Todo）
 　・（src/todo/models.pyの不具合があったため、修正）
 　・docker-compose run --rm api python manage.py createsuperuser
 　・src/todo/admin.pyを修正
+
+## 5回目 #ユーザー操作機能を追加
+■コマンド実行
+　・docker-compose run --rm api python manage.py startapp user
+
+■ファイル修正・作成
+　・src/config/settings.py
+　・src/todo/serializers.py
+　・src/user/views.py
+　・src/user/urls.py
+　・src/config/urls.py
