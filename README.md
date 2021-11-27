@@ -1,14 +1,14 @@
 # DjangoTodoSPA
 Django×React×Dockerのサンプルアプリ（Todo）
 
-## 1回目
+## 1回目 Docker構築用のファイルを作成
 ■ファイル作成
 　・.env
 　・docker-compose.yml
 　・django/Dockerfile
 　・django/requirements.txt
 
-## 2回目
+## 2回目 Docker環境にプロジェクトファイルを作成する
 ■コマンド実行
 　・docker-compose build
 　・docker-compose run --rm api django-admin.py startproject config .
@@ -27,3 +27,17 @@ Django×React×Dockerのサンプルアプリ（Todo）
 
 ■ファイル作成
 　・.gitignore
+
+## 3回目 ユーザーモデルを作成する
+■コマンド実行
+　・docker-compose run --rm api python manage.py startapp todo
+
+■カスタムユーザーのモデルを作成する
+　・src/todo/models.py修正
+　・src/config/settings.py修正
+
+■マイグレーション
+　・docker-compose run --rm api python manage.py makemigrations todo
+
+※参考 docker volumeの保存場所
+　　　　→/var/lib/docker/volumes/
