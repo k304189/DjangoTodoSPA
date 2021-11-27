@@ -38,6 +38,13 @@ Django×React×Dockerのサンプルアプリ（Todo）
 
 ■マイグレーション
 　・docker-compose run --rm api python manage.py makemigrations todo
+　・docker-compose run --rm api python manage.py migrate
 
 ※参考 docker volumeの保存場所
 　　　　→/var/lib/docker/volumes/
+
+## 4回目 #管理ユーザー登録・管理画面表示
+■管理者（superuser）を作成
+　・（src/todo/models.pyの不具合があったため、修正）
+　・docker-compose run --rm api python manage.py createsuperuser
+　・src/todo/admin.pyを修正
