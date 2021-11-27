@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:11
+    ports:
+      - "${DB_OPEN_PORT}:${DB_PORT}"
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+    env_file:
+      - .env
+
+  api:
+    build:
+      context: ./api
+      args:
+        API_GID: $API_GID
+        API_UID: $API_UID
+        API_UNAME: $API_UNAME
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./src:/code
+    ports:
+      - "${API_OPEN_PORT}:${API_PORT}"
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+volumes:
+  dbdata:
