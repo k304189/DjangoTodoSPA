@@ -55,7 +55,16 @@ Django×React×Dockerのサンプルアプリ（Todo）
 
 ■ファイル修正・作成
 　・src/config/settings.py
-　・src/todo/serializers.py
+　・src/user/serializers.py
 　・src/user/views.py
 　・src/user/urls.py
 　・src/config/urls.py
+
+## 6回目 #トークン認証機能実装
+■ファイル修正
+　・src/user/serializers.py
+　・src/user/views.py
+　・src/user/urls.py
+
+■コマンド実行
+　・docker-compose run --rm api python manage.py migrate
