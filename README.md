@@ -68,3 +68,21 @@ Django×React×Dockerのサンプルアプリ（Todo）
 
 ■コマンド実行
 　・docker-compose run --rm api python manage.py migrate
+
+## 7回目 #Todo機能実装
+■ファイル修正
+　・src/todo/models.py
+　・src/todo/admin.py
+
+■コマンド実行
+　・docker-compose run --rm api python manage.py makemigrations todo
+　・docker-compose run --rm api python manage.py migrate
+
+■ファイル修正・追加
+　・src/config/urls.py
+　・src/todo/models.py
+　・src/todo/admin.py
+　・src/todo/views.py
+　・src/user/serializers.py
+　・src/todo/serializers.py
+　・src/todo/urls.py
