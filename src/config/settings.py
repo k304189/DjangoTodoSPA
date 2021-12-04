@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders',
     'todo',
     'user',
 ]
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -71,6 +73,12 @@ TEMPLATES = [
         },
     },
 ]
+
+CORS_ORIGIN_WHITELIST = [
+    'http://192.168.33.10:3000',
+]
+
+CORS_ALLOW_CREDENTIALS = True
 
 WSGI_APPLICATION = 'config.wsgi.application'
 

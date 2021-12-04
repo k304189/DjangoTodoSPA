@@ -114,3 +114,7 @@ Django×React×Dockerのサンプルアプリ（Todo）
 　・docker-compose run --rm front sh -c "npm i @types/jest @types/node @types/react"
 　・docker-compose run --rm front sh -c "npm audit fix"
 　・docker-compose run --rm front sh -c "npm i @types/react-router-dom"
+
+## 11回目 #Todoをbackendから取得し、frontで表示させる
+■コマンド実行
+　・docker-compose run --rm front sh -c "npm i axios"

@@ -1,6 +1,6 @@
 from rest_framework import viewsets, generics, pagination, response
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 from .models import Todo
 from . import serializers
@@ -25,7 +25,8 @@ class TodoPagination(pagination.PageNumberPagination):
 class TodoViewSet(viewsets.ModelViewSet):
     """Handles creating, reading and updating todo items"""
     authentication_classes  = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
+    permission_classes = (AllowAny, )
     serializer_class = serializers.TodoSerializer
     queryset = Todo.objects.order_by('-created_at')
     pagination_class  = TodoPagination
