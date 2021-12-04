@@ -4,9 +4,9 @@ services:
   db:
     image: postgres:11
     ports:
-      - "${DB_OPEN_PORT}:${DB_PORT}"
+      - ${DB_OPEN_PORT}:${DB_PORT}
     volumes:
-      - "dbdata:/var/lib/postgresql/data"
+      - dbdata:/var/lib/postgresql/data
     env_file:
       - .env
 
@@ -14,15 +14,15 @@ services:
     build:
       context: ./api
       args:
-        API_GID: $API_GID
-        API_UID: $API_UID
-        API_UNAME: $API_UNAME
+        API_GID: ${API_GID}
+        API_UID: ${API_UID}
+        API_UNAME: ${API_UNAME}
     command: gunicorn config.wsgi:application --bind 0.0.0.0:${API_OPEN_PORT}
     volumes:
       - ./src:/code
-      - "static_volume:/code/static"
+      - static_volume:${STATIC_DIRECTORY}
     expose:
-      - "${API_OPEN_PORT}"
+      - ${API_OPEN_PORT}
     env_file:
       - .env
     depends_on:
@@ -32,9 +32,11 @@ services:
     build:
       context: ./nginx
     volumes:
-      - static_volume:/code/static
+      - static_volume:${STATIC_DIRECTORY}
     ports:
-      - "${NGINX_OPEN_PORT}:${NGINX_PORT}"
+      - ${NGINX_OPEN_PORT}:${NGINX_PORT}
+    env_file:
+      - .env
     depends_on:
       - api
 
@@ -45,7 +47,11 @@ services:
       - ./front/:/usr/src/app
     command: sh -c "yarn start"
     ports:
-      - "$FRONT_OPEN_PORT:$FRONT_PORT"
+      - ${FRONT_OPEN_PORT}:${FRONT_PORT}
+    env_file:
+      - .env
+    depends_on:
+      - nginx
 
 volumes:
   dbdata:

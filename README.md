@@ -122,3 +122,6 @@ Django×React×Dockerのサンプルアプリ（Todo）
 ## 12回目 #nginx導入
 ■コマンド実行
 　・docker-compose run --rm api python manage.py collectstatic --noinput
+
+## 13回目 #React・nginxの環境変数対応
+■ファイル修正
