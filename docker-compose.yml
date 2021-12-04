@@ -17,15 +17,26 @@ services:
         API_GID: $API_GID
         API_UID: $API_UID
         API_UNAME: $API_UNAME
-    command: python manage.py runserver 0.0.0.0:8000
+    command: gunicorn config.wsgi:application --bind 0.0.0.0:${API_OPEN_PORT}
     volumes:
       - ./src:/code
-    ports:
-      - "${API_OPEN_PORT}:${API_PORT}"
+      - "static_volume:/code/static"
+    expose:
+      - "${API_OPEN_PORT}"
     env_file:
       - .env
     depends_on:
       - db
+
+  nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - static_volume:/code/static
+    ports:
+      - "${NGINX_OPEN_PORT}:${NGINX_PORT}"
+    depends_on:
+      - api
 
   front:
     build:
@@ -38,3 +49,4 @@ services:
 
 volumes:
   dbdata:
+  static_volume:

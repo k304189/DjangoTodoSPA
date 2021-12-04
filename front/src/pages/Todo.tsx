@@ -5,7 +5,7 @@ export const Todo: VFC = memo(() => {
   const [todos, setTodos] = useState([]);
 
   const getTodos = async () => {
-    const url = "http://192.168.33.10:8000/api/todo/"
+    const url = "http://192.168.33.10:8080/api/todo/"
     const response = await axios.get(url);
     if(response.data.results) {
       setTodos(response.data.results);

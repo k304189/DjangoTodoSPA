@@ -118,3 +118,7 @@ Django×React×Dockerのサンプルアプリ（Todo）
 ## 11回目 #Todoをbackendから取得し、frontで表示させる
 ■コマンド実行
 　・docker-compose run --rm front sh -c "npm i axios"
+
+## 12回目 #nginx導入
+■コマンド実行
+　・docker-compose run --rm api python manage.py collectstatic --noinput

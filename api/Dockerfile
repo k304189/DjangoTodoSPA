@@ -8,7 +8,8 @@ ARG API_UNAME
 
 RUN groupadd -g ${API_GID} ${API_UNAME} && \
     useradd -m -s /bin/bash -u ${API_UID} -g ${API_GID} ${API_UNAME} && \
-    mkdir /code
+    mkdir /code && \
+    mkdir /code/static
 
 WORKDIR /code
 
