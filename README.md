@@ -107,3 +107,10 @@ Django×React×Dockerのサンプルアプリ（Todo）
 ■コマンド実行
 　・cp -Rp ./front/react-sample/* ./front/
 　・sudo rm -rf ./front/react-sample
+
+## 10回目 #React Router導入
+■コマンド実行
+　・docker-compose run --rm front sh -c "npm i react-router-dom"
+　・docker-compose run --rm front sh -c "npm i @types/jest @types/node @types/react"
+　・docker-compose run --rm front sh -c "npm audit fix"
+　・docker-compose run --rm front sh -c "npm i @types/react-router-dom"
