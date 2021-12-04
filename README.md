@@ -86,3 +86,16 @@ Django×React×Dockerのサンプルアプリ（Todo）
 　・src/user/serializers.py
 　・src/todo/serializers.py
 　・src/todo/urls.py
+
+## 8回目 #react導入
+■ファイル修正
+　・.env
+　・.gitignore
+　・.api/requirements.txt
+　・docker-compose.yml
+
+■ディレクトリ作成
+　・front
+
+■コマンド実行
+　・docker-compose run --rm front sh -c "npm install -g create-react-app && create-react-app react-sample --template typescript"

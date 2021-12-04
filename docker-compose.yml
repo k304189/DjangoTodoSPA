@@ -27,5 +27,14 @@ services:
     depends_on:
       - db
 
+  front:
+    build:
+      context: ./front
+    volumes:
+      - ./front/:/usr/src/app
+    command: sh -c "cd react-sample && yarn start"
+    ports:
+      - "$FRONT_OPEN_PORT:$FRONT_PORT"
+
 volumes:
   dbdata:
