@@ -99,3 +99,11 @@ Django×React×Dockerのサンプルアプリ（Todo）
 
 ■コマンド実行
 　・docker-compose run --rm front sh -c "npm install -g create-react-app && create-react-app react-sample --template typescript"
+
+## 9回目 #react-sampleを削除
+■ファイル修正
+　・docker-compose.yml
+
+■コマンド実行
+　・cp -Rp ./front/react-sample/* ./front/
+　・sudo rm -rf ./front/react-sample
