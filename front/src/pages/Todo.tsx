@@ -3,12 +3,22 @@ import axios from "axios";
 
 export const Todo: VFC = memo(() => {
   const [todos, setTodos] = useState([]);
+  const [errMsg, setErrMsg] = useState("");
+
+  const headers = {
+    'Authorization': `token ${localStorage.getItem("Authorization")}`
+  };
 
   const getTodos = async () => {
     const url = `${process.env.REACT_APP_API_V1_URL}/todo/`
-    const response = await axios.get(url);
-    if(response.data.results) {
-      setTodos(response.data.results);
+    try {
+      const response = await axios.get(url, { headers });
+      if(response.data.results) {
+        setTodos(response.data.results);
+        setErrMsg("");
+      }
+    } catch (e) {
+      setErrMsg("データ取得に失敗しました");
     }
   }
 
@@ -32,6 +42,7 @@ export const Todo: VFC = memo(() => {
       ) : (
         <div>Todoはありません</div>
       )}
+      <div>{errMsg}</div>
     </>
   );
 });

@@ -25,8 +25,8 @@ class TodoPagination(pagination.PageNumberPagination):
 class TodoViewSet(viewsets.ModelViewSet):
     """Handles creating, reading and updating todo items"""
     authentication_classes  = (TokenAuthentication,)
-    # permission_classes = (IsAuthenticated,)
-    permission_classes = (AllowAny, )
+    permission_classes = (IsAuthenticated,)
+    # permission_classes = (AllowAny, )
     serializer_class = serializers.TodoSerializer
     queryset = Todo.objects.order_by('-created_at')
     pagination_class  = TodoPagination
