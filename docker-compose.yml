@@ -20,7 +20,7 @@ services:
     command: gunicorn config.wsgi:application --bind 0.0.0.0:${API_OPEN_PORT}
     volumes:
       - ./src:/code
-      - static_volume:${STATIC_DIRECTORY}
+      - static_volume:${API_STATIC_DIRECTORY}
     expose:
       - ${API_OPEN_PORT}
     env_file:
@@ -32,7 +32,7 @@ services:
     build:
       context: ./nginx
     volumes:
-      - static_volume:${STATIC_DIRECTORY}
+      - static_volume:${NGINX_STATIC_DIRECTORY}
     ports:
       - ${NGINX_OPEN_PORT}:${NGINX_PORT}
     env_file:
