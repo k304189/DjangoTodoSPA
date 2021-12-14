@@ -7,7 +7,7 @@ from . import serializers
 
 class TodoPagination(pagination.PageNumberPagination):
     """Get 2 Todo items in a page"""
-    page_size = 2
+    page_size = 10
 
     def get_paginated_response(self, data):
         return response.Response({
@@ -28,8 +28,12 @@ class TodoViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
     # permission_classes = (AllowAny, )
     serializer_class = serializers.TodoSerializer
-    queryset = Todo.objects.order_by('-created_at')
+    # queryset = Todo.objects.order_by('-created_at')
     pagination_class  = TodoPagination
+
+    def get_queryset(self):
+        user = self.request.user
+        return Todo.objects.filter(user=user)
 
     def perform_create(self, serializer):
         """Create a new Todo item"""

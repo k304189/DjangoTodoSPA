@@ -74,6 +74,10 @@ TEMPLATES = [
     },
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://192.168.33.10:8080'
+]
+
 CORS_ORIGIN_WHITELIST = [
     'http://192.168.33.10:3000',
 ]
