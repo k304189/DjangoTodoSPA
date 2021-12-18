@@ -33,7 +33,7 @@ class TodoViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
-        return Todo.objects.filter(user=user)
+        return Todo.objects.filter(user=user).order_by('-created_at')
 
     def perform_create(self, serializer):
         """Create a new Todo item"""
