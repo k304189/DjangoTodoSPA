@@ -125,3 +125,13 @@ Django×React×Dockerのサンプルアプリ（Todo）
 
 ## 13回目 #React・nginxの環境変数対応
 ■ファイル修正
+
+## flake8をインストール
+■ファイル作成
+　・django/requirements.txt
+■コマンド実行
+　・docker-compose run --rm api flake8
+
+## Reactテスト実装
+コマンド実行
+　・docker-compose run --rm front npm run test
