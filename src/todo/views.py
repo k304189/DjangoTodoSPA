@@ -7,12 +7,23 @@ from . import serializers
 
 class TodoPagination(pagination.PageNumberPagination):
     """Get 2 Todo items in a page"""
-    page_size = 10
+    page_size = 2
 
     def get_paginated_response(self, data):
+        next = None
+        prev = None
+
+        if self.get_next_link():
+            next = f"http://192.168.33.10:8080/api/todo/?page={self.page.number + 1}"
+
+        if self.get_previous_link():
+            prev = f"http://192.168.33.10:8080/api/todo/?page={self.page.number - 1}"
+
         return response.Response({
-            'next': self.get_next_link(),
-            'previous': self.get_previous_link(),
+            # 'next': self.get_next_link(),
+            # 'previous': self.get_previous_link(),
+            'next': next,
+            'previous': prev,
             'count': self.page.paginator.count,
             'total_pages': self.page.paginator.num_pages,
             'current_page': self.page.number,
