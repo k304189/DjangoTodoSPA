@@ -133,5 +133,11 @@ Django×React×Dockerのサンプルアプリ（Todo）
 　・docker-compose run --rm api flake8
 
 ## Reactテスト実装
-コマンド実行
+■コマンド実行
 　・docker-compose run --rm front npm run test
+
+## Mockインストール
+コマンド実行
+　・docker-compose run --rm front npm i axios-mock-server
+　・docker-compose run --rm front npm audit fix --force
+　・docker-compose run --rm front npm i jest-watch-typeahead@0.6.5

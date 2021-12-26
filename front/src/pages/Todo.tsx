@@ -38,8 +38,8 @@ export const Todo: VFC = memo(() => {
     if(nextUrl) {
       getTodos(nextUrl);
       // console.log(nextUrl);
-    } else {
-      console.log("not Exists url");
+    // } else {
+    //   console.log("not Exists url");
     }
   }
 
@@ -47,8 +47,8 @@ export const Todo: VFC = memo(() => {
     if(prevUrl) {
       getTodos(prevUrl);
       // console.log(prevUrl);
-    } else {
-      console.log("not Exists url");
+    // } else {
+    //   console.log("not Exists url");
     }
   }
 
