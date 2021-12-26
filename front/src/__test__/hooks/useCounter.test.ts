@@ -1,3 +1,4 @@
+// @ts-ignore
 import { HookResult, renderHook, act } from '@testing-library/react-hooks';
 import { useCounter, UseCounterReturnType } from '../../hooks/useCounter';
 import { rest } from "msw";
@@ -62,6 +63,7 @@ describe('useCounter', () => {
     //       expect(data.data.greeting).toBe('hello there!!');
     //     })
     // })
+    // @ts-ignore
     return result.current.axiosTest().then(res => {
       expect(res.data.greeting).toBe('hello there!!');
     });
@@ -74,6 +76,7 @@ describe('useCounter', () => {
       }),
     );
 
+    // @ts-ignore
     return result.current.axiosTest().catch(e => {
       expect(e.response.status).toBe(500);
     });

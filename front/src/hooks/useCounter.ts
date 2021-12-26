@@ -16,6 +16,7 @@ export const useCounter = (): UseCounterReturnType => {
   return {
     count,
     increment,
+    // @ts-ignore
     axiosTest,
   };
 };

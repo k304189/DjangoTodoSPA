@@ -138,6 +138,20 @@ Django×React×Dockerのサンプルアプリ（Todo）
 
 ## Mockインストール
 コマンド実行
-　・docker-compose run --rm front npm i axios-mock-server
+　・docker-compose run --rm front npm i axios-mock-server # うまく動かなかったのでmswを使う
 　・docker-compose run --rm front npm audit fix --force
 　・docker-compose run --rm front npm i jest-watch-typeahead@0.6.5
+
+## ESLintインストール
+コマンド実行
+　・docker-compose run --rm front npm i eslint
+
+　・docker-compose run --rm front npx eslint --init
+    ✔ How would you like to use ESLint? · style
+    ✔ What type of modules does your project use? · esm
+    ✔ Which framework does your project use? · react
+    ✔ Does your project use TypeScript? · No / Yes
+    ✔ Where does your code run? · browser
+    ✔ How would you like to define a style for your project? · guide
+    ✔ Which style guide do you want to follow? · airbnb
+    ✔ What format do you want your config file to be in? · JavaScript
